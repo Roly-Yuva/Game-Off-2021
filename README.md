@@ -1,13 +1,9 @@
-# Welcome to Defold
+# Game-Off-2021
+Source code and assets for Game Off game jam 2021
+-----
+Game-Off 2021: https://itch.io/jam/game-off-2021
+-----
+Engine of choice: Defold (https://defold.com)
 
-This project was created from the "empty" project template.
-
-The settings in ["game.project"](defold://open?path=/game.project) are all the default. A bootstrap empty ["main.collection"](defold://open?path=/main/main.collection) is included.
-
-Check out [the documentation pages](https://defold.com/learn) for examples, tutorials, manuals and API docs.
-
-If you run into trouble, help is available in [our forum](https://forum.defold.com).
-
-Happy Defolding!
-
----
+Language of choice: Lua (https://www.lua.org/manual/5.1/)
+-----
