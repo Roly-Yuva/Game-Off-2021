@@ -13,4 +13,6 @@ input_method = HiddenInputField
 
 [project]
 title = Game Off 2021
+publisher = Roly-Yuva
+developer = Roly-Yuva
 
