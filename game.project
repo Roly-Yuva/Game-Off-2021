@@ -15,4 +15,5 @@ input_method = HiddenInputField
 title = Game Off 2021
 publisher = Roly-Yuva
 developer = Roly-Yuva
+dependencies#0 = https://github.com/selimanac/defold-random/archive/master.zip
 
