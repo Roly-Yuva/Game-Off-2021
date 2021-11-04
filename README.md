@@ -20,3 +20,5 @@ All script files can be found in src/scripts
 For any scripts that use compiled Moonscript code, the .moon file will also be included
 
 All GUI engine files can be found in main/gui, with the names matching to their respective scripts in src/scripts/gui_scripts
+
+Any custom-made modules can be found in src/include
