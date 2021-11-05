@@ -8,7 +8,7 @@ function M:bug_out(bugs)
 	bugs = bugs or {
 		fail,
 		other_move,
-		recoil
+		backfire
 	}
 	local bug = bugs[rnd.range(1, #bugs)]
 	msg.post("main:/gui/battle#battle_gui", "display_message", {text = "But it bugged out"})
@@ -38,7 +38,7 @@ function M:other_move()
 	return move
 end
 
-function M:recoil()
+function M:backfire()
 	local move = self.current_move
 	local damage = move.damage
 	damage = damage * 0.75
