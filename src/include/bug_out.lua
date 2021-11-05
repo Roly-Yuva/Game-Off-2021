@@ -11,19 +11,9 @@ function M:bug_out(bugs)
 		backfire
 	}
 	local bug = bugs[rnd.range(1, #bugs)]
-	msg.post("main:/gui/battle#battle_gui", "display_message", {text = "But it bugged out"})
+	msg.post("main:/gui/battle#battle_gui", "display_message", {text = "But it bugged out!"})
 	return M.bug(self)
 end
-
---[[Format for moves:
-self.moves = {
-	example_move = {}
-	setmetatable(self.moves.example_move, moves_list.example_move)
-	-- other moves here
-}
--- in metatable:
-	moves_list.example_move.__index = moves_list.example_move
-]]
 
 function M:fail()
 	return false
@@ -31,8 +21,9 @@ end
 
 function M:other_move()
 	local moves = self.moves
+	local move
 	repeat
-		local move = moves[rnd.range(1, #moves)
+		move = moves[rnd.range(1, #moves)]
 	until move ~= self.current_move
 	self.current_move = move
 	return move
