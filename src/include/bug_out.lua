@@ -2,6 +2,8 @@
 -- To get access to the functions, you need to put:
 -- require "my_directory.my_file"
 -- in any script using the functions.
+
+-- THIS MODULE REQUIRES SOME FIXING
 local M = {}
 
 function M:bug_out(bugs)
