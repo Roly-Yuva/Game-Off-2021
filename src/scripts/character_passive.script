@@ -10,6 +10,12 @@ function init(self)
 			damage = 25
 		}
 	}
+	-- test
+	self.stats = {
+		health = 250,
+		exp = 0,
+		level = 1
+	}
 end
 
 function final(self)
@@ -28,6 +34,9 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("get_moves") then
 		local moves = self.moves
 		msg.post(sender, "delivered_moves", {moves = moves})
+	elseif message_id == hash("get_stats") then
+		local stats = self.stats
+		msg.post(sender, "delivered_stats", {stats = stats})
 	end
 end
 

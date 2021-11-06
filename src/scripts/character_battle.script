@@ -1,10 +1,12 @@
 local bug = require "src/include.bug_out"
+local level = require "src/include.leveling"
 
 function init(self)
 	self.moves = {}
 	self.current_move = nil
-	self.health = 250
 	msg.post("main:/passive#character_passive", "get_moves")
+	msg.post("main:/passive#character_passive", "get_stats")
+	msg.post(".", "acquire_input_focus")
 end
 
 function final(self)
@@ -25,11 +27,19 @@ function on_message(self, message_id, message, sender)
 			local move = message.moves[i]
 			self.moves[i] = move
 		end
+		pprint(self.moves)
+	elseif message_id == hash("delivered_stats") then
+		self.stats = message.stats
+		pprint(self.stats)
 	end
 end
 
 function on_input(self, action_id, action)
-	
+	-- test
+	if action_id == hash("touch") and action.pressed then
+		self.stats.exp, self.stats.level = level.gain_exp(self.stats.exp, self.stats.level, 100)
+		print(self.stats.exp, self.stats.level)
+	end
 end
 
 function on_reload(self)
