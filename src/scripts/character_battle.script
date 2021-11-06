@@ -2,7 +2,6 @@ local bug = require "src/include.bug_out"
 local level = require "src/include.leveling"
 
 function init(self)
-	self.moves = {}
 	self.current_move = nil
 	msg.post("main:/passive#character_passive", "get_moves")
 	msg.post("main:/passive#character_passive", "get_stats")
