@@ -1,37 +1,27 @@
+local druid = require "druid.druid"
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	self.test = 1
+	self.druid = druid.new(self)
 end
 
 function final(self)
-	-- Add finalization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	self.druid:final()
 end
 
 function update(self, dt)
-	local text = gui.get_node("message_display")
-	gui.set_text(text, self.test)
-	local rand = rnd.range(1, 100)
-	if rand >= 1 and rand <= 50 then
-		self.test = self.test + 1
-	elseif rand >= 51 and rand <= 100 then
-		self.test = self.test - 1
-	end
+	self.druid:update(dt)
 end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("display_message") then
 		-- code
 	end
+	self.druid:on_message(message_id, message, sender)
 end
 
 function on_input(self, action_id, action)
-	if action_id == hash("touch") then
-		local text = gui.get_node("message_display")
-		gui.set_text(text, self.test)
-		self.test = self.test + 1
-	end
+	return self.druid:on_input(action_id, action)
 end
 
 function on_reload(self)

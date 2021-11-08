@@ -17,14 +17,21 @@ M.level_advancement = {
 	86400
 }
 
-function M.gain_exp(current_exp, current_level, exp)
-	local required_exp = M.level_advancement[current_level + 1]
-	current_exp = current_exp + exp
-	if current_exp >= required_exp then
-		-- msg.post("main:/gui/victory#victory_gui", "display_message", {text = "You leveled up!\nYou are now level " .. tostring(self.stats[level]) .. "!"})
-		return current_exp, current_level + 1
+function M.gain_exp(stats, exp)
+	local required_exp = M.level_advancement[stats.level + 1]
+	stats.exp = stats.exp + exp
+	if stats.exp >= required_exp then
+		stats = M.level_up(stats)
 	end
-	return current_exp, current_level
+	return stats
+end
+
+function M.level_up(stats)
+	stats.level = stats.level + 1
+	stats.base_health = stats.base_health + 15
+	stats.base_mana = stats.base_mana + 5
+	-- msg.post("main:/gui/victory#victory_gui", "display_message", {text = "You leveled up!\nYou are now level " .. tostring(stats.level) .. "!"})
+	return stats
 end
 
 return M

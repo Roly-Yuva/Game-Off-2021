@@ -15,9 +15,10 @@ function final(self)
 end
 
 function update(self, dt)
-	-- Add update code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	if self.current_move then
+		-- code to do move here
+		self.current_move = nil
+	end
 end
 
 function on_message(self, message_id, message, sender)
@@ -26,10 +27,18 @@ function on_message(self, message_id, message, sender)
 			local move = message.moves[i]
 			self.moves[i] = move
 		end
-		pprint(self.moves)
 	elseif message_id == hash("delivered_stats") then
 		self.stats = message.stats
-		pprint(self.stats)
+	elseif message_id == hash("do_move") then
+		for i = 1, #self.moves do
+			if self.moves[i] == message.move then
+				self.current_move = message.move
+			end
+		end
+		if not self.current_move then
+			return error("Not a valid move")
+		end
+	end
 	end
 end
 
