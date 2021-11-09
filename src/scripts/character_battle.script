@@ -2,7 +2,7 @@ local bug = require "src/include.bug_out"
 local level = require "src/include.leveling"
 
 function init(self)
-	self.current_move = nil
+	self.current_move = false
 	self.moves = {}
 	msg.post("main:/passive#character_passive", "get_moves")
 	msg.post("main:/passive#character_passive", "get_stats")
@@ -18,7 +18,7 @@ end
 function update(self, dt)
 	if self.current_move then
 		-- code to do move here
-		self.current_move = nil
+		self.current_move = false
 	end
 end
 
