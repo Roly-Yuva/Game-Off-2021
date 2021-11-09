@@ -13,7 +13,7 @@ input_method = HiddenInputField
 
 [project]
 title = Game Off 2021
-publisher = Roly-Yuva
+publisher = Charles Lamb
 developer = Roly-Yuva
 dependencies#0 = https://github.com/selimanac/defold-random/archive/master.zip
 dependencies#1 = https://github.com/Insality/druid/archive/master.zip
