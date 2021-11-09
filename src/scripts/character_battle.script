@@ -3,6 +3,7 @@ local level = require "src/include.leveling"
 
 function init(self)
 	self.current_move = nil
+	self.moves = {}
 	msg.post("main:/passive#character_passive", "get_moves")
 	msg.post("main:/passive#character_passive", "get_stats")
 	msg.post(".", "acquire_input_focus")
@@ -39,13 +40,12 @@ function on_message(self, message_id, message, sender)
 			return error("Not a valid move")
 		end
 	end
-	end
 end
 
 function on_input(self, action_id, action)
 	-- test
 	if action_id == hash("touch") and action.pressed then
-		self.stats.exp, self.stats.level = level.gain_exp(self.stats.exp, self.stats.level, 100)
+		self.stats = level.add_exp(self.stats, 100)
 		print(self.stats.exp, self.stats.level)
 	end
 end

@@ -3,16 +3,19 @@ function init(self)
 	self.moves = {
 		{
 			name = "test_move1",
-			damage = 50
+			damage = 50,
+			-- mana = 25
 		},
 		{
 			name = "test_move2",
-			damage = 25
+			damage = 25,
+			-- mana = 15
 		}
 	}
 	-- test
 	self.stats = {
-		health = 250,
+		base_health = 250,
+		-- base_mana = 100,
 		exp = 0,
 		level = 1
 	}
