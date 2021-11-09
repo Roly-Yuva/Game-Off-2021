@@ -28,7 +28,7 @@ function on_message(self, message_id, message, sender)
 		-- remember to test this
 		local category = message.category
 		local item_name = message.item_name
-		item = data[category][item_name]
+		local item = data[category][item_name]
 		self.inventory[item_name] = item
 	elseif message_id == hash("get_item") then
 		local item = self.inventory[message.item]
