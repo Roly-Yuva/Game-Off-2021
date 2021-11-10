@@ -3,13 +3,12 @@
 -- require "my_directory.my_file"
 -- in any script using the functions.
 
--- THIS MODULE REQUIRES SOME FIXING
 local M = {}
 
 M.bugs = {
-	fail,
-	other_move,
-	backfire
+	M.fail,
+	M.other_move,
+	M.backfire
 }
 
 function M.bug_out(bugs, current_move, health, moves)

@@ -1,9 +1,12 @@
 local data = require "src/include.item_database"
 
 --[[item format:
-	item_name = {
-		type,
-		damage(if type == weapon) or defense(if type == armor)
+	item_category = {
+		item_name = {
+			display_name,
+			type,
+			damage(if type == "weapon") or defense(if type == "armor")
+		}
 	}
 ]]
 
