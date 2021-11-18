@@ -2,6 +2,7 @@ local druid = require "druid.druid"
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
+	msg.post("#", "battle_disable")
 	self.druid = druid.new(self)
 end
 
@@ -16,6 +17,12 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("display_message") then
 		-- code
+	elseif message_id == hash("battle_enable") then
+		self.active = true
+		msg.post("#", "enable")
+	elseif message_id == hash("battle_disable") then
+		self.active = false
+		msg.post("#", "disable")
 	end
 	self.druid:on_message(message_id, message, sender)
 end

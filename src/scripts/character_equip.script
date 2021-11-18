@@ -1,7 +1,7 @@
+require "src/include.equip"
+
 function init(self)
-	-- Add initialization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	self.equipped = {}
 end
 
 function final(self)

@@ -1,5 +1,5 @@
 -- Put functions in this file to use them in several other scripts.
--- To get access to the functions, you need to put.
+-- To get access to the functions, you need to put:
 -- require "my_directory.my_file"
 -- in any script using the functions.
 
@@ -14,7 +14,7 @@ M.bugs = {
 function M.bug_out(bugs, current_move, health, moves)
 	bugs = bugs or M.bugs
 	local bug = bugs[rnd.range(1, #bugs)]
-	msg.post("main./gui/battle#battle_gui", "display_message", {text = "But it bugged out!"})
+	msg.post("main:/gui/battle#battle_gui", "display_message", {text = "But it bugged out!"})
 	return M.bug(current_move, health, moves)
 end
 
