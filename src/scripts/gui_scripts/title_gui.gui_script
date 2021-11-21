@@ -1,7 +1,7 @@
 local buttons = {
 	"play",
-	"credits",
-	"options"
+	"options",
+	"credits"
 }
 
 function init(self)
@@ -33,10 +33,10 @@ end
 
 function on_input(self, action_id, action)
 	if action_id == hash("touch") and action.pressed and self.active then
-		for i = 1, 1 do
+		for i = 1, 2 do
 			local button = gui.get_node(buttons[i] .. "_button")
 			if gui.pick_node(button, action.x, action.y) then
-				print("test")
+				print(buttons[i] .. " - test")
 				-- code
 			end
 		end
