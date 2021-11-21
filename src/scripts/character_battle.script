@@ -43,10 +43,8 @@ function on_message(self, message_id, message, sender)
 end
 
 function on_input(self, action_id, action)
-	-- test
 	if action_id == hash("touch") and action.pressed then
-		self.stats = level.add_exp(self.stats, 100)
-		print(self.stats.exp, self.stats.level)
+		-- code
 	end
 end
 
