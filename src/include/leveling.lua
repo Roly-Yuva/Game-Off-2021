@@ -23,16 +23,19 @@ M.level_advancement = {
 }
 
 function M.add_exp(stats, exp)
-	local required_exp = M.level_advancement[stats.level + 1]
 	stats.exp = stats.exp + exp
-	if stats.exp >= required_exp then
-		stats = M.level_up(stats)
+	for i = stats.level + 1, #M.level_advancement do
+		if stats.exp >= M.level_advancement[i] then
+			stats.level = stats.level + 1
+		else
+			stats = M.level_up(stats)
+			break
+		end
 	end
 	return stats
 end
 
 function M.level_up(stats)
-	stats.level = stats.level + 1
 	stats.base_health = stats.base_health + 15
 	-- stats.base_mana = stats.base_mana + 5
 	-- msg.post("main:/gui/victory#victory_gui", "display_message", {text = "You leveled up!\nYou are now level " .. tostring(stats.level) .. "!"})
