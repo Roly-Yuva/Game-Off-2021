@@ -16,15 +16,19 @@ key_trigger {
 }
 key_trigger {
   input: KEY_W
-  action: "jump"
+  action: "up"
 }
 key_trigger {
   input: KEY_UP
-  action: "jump"
+  action: "up"
 }
 key_trigger {
-  input: KEY_SPACE
-  action: "jump"
+  input: KEY_S
+  action: "down"
+}
+key_trigger {
+  input: KEY_DOWN
+  action: "down"
 }
 key_trigger {
   input: KEY_BACKSPACE
