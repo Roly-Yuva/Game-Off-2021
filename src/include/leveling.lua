@@ -42,4 +42,8 @@ function M.level_up(stats)
 	return stats
 end
 
+function M.exp_left(stats)
+	return M.level_advancement[stats.level + 1] - stats.exp
+end
+
 return M
