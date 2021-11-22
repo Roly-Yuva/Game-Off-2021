@@ -5,7 +5,13 @@
 local M = {}
 
 M.lv1 = {
-	-- level 1 enemies here
+	slime = {
+		display_name = "Slime",
+		description = "A small jiggly slime.",
+		atk = 3,
+		def = 1,
+		rare = "common", -- or 1
+	}
 }
 
 -- continue for all levels

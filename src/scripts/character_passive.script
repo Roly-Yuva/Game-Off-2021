@@ -40,6 +40,9 @@ function on_message(self, message_id, message, sender)
 	elseif message_id == hash("get_stats") then
 		local stats = self.stats
 		msg.post(sender, "delivered_stats", {stats = stats})
+	elseif message_if == hash("get_stat") then
+		local stat = self.stats[message.stat]
+		msg.post(sender, "delivered_stat", {stat = stat})
 	end
 end
 
