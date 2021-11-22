@@ -1,5 +1,5 @@
 function init(self)
-	
+	msg.post("#", "inventory_disable")
 end
 
 function final(self)
@@ -11,7 +11,13 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	
+	if message_id == hash("inventory_enable") then
+		self.active = true
+		msg.post("#", "enable")
+	elseif message_id == hash("inventory_disable") then
+		self.active = false
+		msg.post("#", "disable")
+	end
 end
 
 function on_input(self, action_id, action)
