@@ -1,5 +1,12 @@
 local druid = require "druid.druid"
 
+local actions = {
+	"attack",
+	"defend",
+	"item",
+	"flee"
+}
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	msg.post("#", "battle_disable")
@@ -28,6 +35,14 @@ function on_message(self, message_id, message, sender)
 end
 
 function on_input(self, action_id, action)
+	if action_id == hash("click") and action.pressed and self.active then
+		for i = 1, 4 do
+			local node = gui.get_node(actions[i])
+			if gui.pick_node(node, action.x, action.y) then
+				do_action(actions[i])
+			end
+		end
+	end
 	return self.druid:on_input(action_id, action)
 end
 
